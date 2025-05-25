@@ -91,6 +91,10 @@ export const login=async(req,res)=>{
 
 export const logout= async(req,res)=>{
   try {
+     if(!req.cookies.jwt){
+        return res.status(400).json({
+            message:"you are not logged in",
+        })}
       res.clearCookie("jwt");
     res.status(200).json({
         message:"logout success",
