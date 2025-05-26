@@ -5,6 +5,9 @@ import { Purchase } from "../models/purchase.model.js";
 
 //course create
 export const createCourse = async (req, res) => {
+   const adminId = req.adminId;
+
+
    const { title, description, price } = req.body;
    try {
       if (!title || !description || !price) {
@@ -37,6 +40,7 @@ export const createCourse = async (req, res) => {
             public_id: cloud_response.public_id,
             url: cloud_response.url,
          },
+         creatorId:adminId, // Assuming you have the adminId from the request context
       }
 
       const course = await Course.create(courseData);
@@ -54,11 +58,19 @@ export const createCourse = async (req, res) => {
 }
 
 export const updateCourse = async (req, res) => {
+   const adminId  = req.adminId; // Assuming you have the adminId from the request context
    const { courseId } = req.params;
    const { title, description, price, image } = req.body;
    try {
+
+const search = await Course.findOne({ _id: courseId, creatorId: adminId });search
+
+      if(!search) {
+         return res.status(404).json({ message: "Course Not Found" });
+      }
       const course = await Course.updateOne({
-         _id: courseId
+         _id: courseId,
+         creatorId: adminId, // Ensure the course belongs to the admin
       }, {
          title,
          description,
@@ -82,14 +94,17 @@ export const updateCourse = async (req, res) => {
 }
 
 export const deleteCourse = async (req, res) => {
+   const adminId  = req.adminId; // Assuming you have the adminId from the request context
    const { courseId } = req.params;
    try {
-      const course = await Course.findOneAndDelete({ _id: courseId })
+      const course = await Course.findOneAndDelete({ _id: courseId,
+         creatorId: adminId, // Ensure the course belongs to the admin
+       })
          ;
       if (!course) {
          return res.status(404).json({ message: "Course Not Found" });
       }
-      res.statuss(200).json({message:"Coourse delete successfully"});;
+      res.status(200).json({message:"Coourse delete successfully"});;
 
    } catch (error) {
       res.status(500).json({errors:"Error in course deleting" });
