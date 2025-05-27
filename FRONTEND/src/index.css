@@ -1,1 +1,24 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Poppins:wght@500&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+.font-poppins {
+  font-family: "Poppins",;
+}
+.font-fredoka {
+  font-family: "Fredoka", ;
+}
+.font-roboto {
+  font-family: "Roboto",;
+}
+
+
+body {
+  font-family: "Fredoka";
+}
+h1, h2, h3, h4, h5 {
+  font-family: "Poppins";
+}
+p, span {
+  font-family: "Poppins",;
+}
