@@ -51,7 +51,7 @@ function Home() {
         const response = await axios.get(" http://localhost:4000/api/v1/course/courses", {
           withCredentials: true,
         });
-        console.log(response.data.course);
+        // console.log(response.data.course);
         setCourses(response.data.course);
       } catch (error) {
         console.log("error in fetchCourses ", error);
@@ -149,7 +149,7 @@ function Home() {
                       <h2 className="text-xl font-bold text-white mb-2">
                         {course.title}
                       </h2>
-                      <Link to={`/buy/${course._id}`} className="mt-8 bg-orange-500 text-white py-2 px-4 rounded-full hover:bg-blue-500 duration-300">
+                      <Link to={`/buy/${course._id}`} className="mt-8 bg-blue-500 text-white py-2 px-4 rounded-full hover:bg-blue-200 hover:text-black duration-300">
                         Enroll Now
                       </Link>
                     </div>
