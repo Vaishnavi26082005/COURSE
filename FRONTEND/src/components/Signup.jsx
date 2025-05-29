@@ -47,7 +47,7 @@ function Signup() {
     }
   };
   return (
-    <div className="bg-gradient-to-r from-black to-blue-950 min-h-screen  ">
+    <div className="bg-gradient-to-r from-blue-950 to-blue-300 min-h-screen  ">
       <div className="h-screen container mx-auto flex  items-center justify-center text-white">
         {/* Header */}
         <header className="absolute top-0 left-0 w-full flex justify-between items-center p-5  ">
@@ -60,14 +60,13 @@ function Signup() {
           <div className="flex items-center space-x-4">
             <Link
               to={"/login"}
-              className="bg-transparent border border-gray-400  hover:bg-blue-300 hover:scale-105 hover:text-black p-1 text-sm md:text-md md:py-2 md:px-4 rounded-md"
+              className="bg-transparent  font-semibold border hover:scale-105 border-gray-500 p-1  text-black text-sm md:text-md md:py-2 md:px-4 rounded-md hover:bg-gray-900 hover:text-white transition duration-300"
             >
               Login
             </Link>
             <Link
               to={"/courses"}
-              className="bg-blue-500 p-1 text-sm md:text-md md:py-2 md:px-4 hover:bg-blue-300 hover:scale-105 hover:text-black rounded-md"
-            >
+              className="bg-gray-900 p-1 font-semibold  hover:scale-105 text-sm md:text-md md:py-2 md:px-4 rounded-md hover:bg-gray-600">
               Join now
             </Link>
           </div>

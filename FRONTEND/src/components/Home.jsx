@@ -134,12 +134,12 @@ const handleLogout = async () => {
       style={{
         height: '100vh',
         width: '100%',
-        position: 'fixed',// Ensure proper positioning
+       
         top: 0,
         left: 0
       }}
     >
-      {/* <div className='bg-gradient-to-r from-black to-blue-600 '> */}
+      {/* <div className='bg-gradient-to-r from-blue-950 to-blue- '> */}
       <div className="h-screen text-white mx-auto container relative z-10">
         {/* Header */}
         <header className='flex items-center justify-between  p-6'>
@@ -167,17 +167,18 @@ const handleLogout = async () => {
         </header>
 
         {/* Main Content */}
-        <section className='text-center'>
-          <h1 className='text-4xl font-semibold text-blue-400'>Skill-Nest</h1>
-          <br />
-          <br />
-          <p className="text-gray-400">Sharpen your skills with expertly crafted courses at Skill Nest—your destination to learn, grow, and achieve more.</p>
+        <section className='text-center mx-auto container mb-28 '>
+          <h1 className='text-4xl font-semibold text-blue-400 mb-1.5'>Skill-Nest</h1>
+         
+          
+          <p className="text-gray-400 ">Sharpen your skills with expertly crafted courses at Skill Nest—your destination to learn, grow, and achieve more.</p>
+         
           <div className='space-x-4 mt-8'>
-            <button className='bg-green-500 text-white  py-3 px-6 rounded font-semibold hover:bg-white duration-300 hover:text-black'> Explore Courses</button>
-            <button className='bg-white text-black rounded py-3 px-6 font-semibold hover:bg-green-500 duration-300 hover:text-white'> Course Videos</button>
+            <Link to={"/courses"} className='bg-green-500 text-white  py-3 px-6 rounded font-semibold hover:bg-white duration-300 hover:text-black'> Explore Courses</Link>
+            <Link to={"https://www.youtube.com/results?search_query=full+stack+playlist"}className='bg-white text-black rounded py-3 px-6 font-semibold hover:bg-green-500 duration-300 hover:text-white'> Course Videos</Link>
           </div>
         </section>
-        <section>
+        <section className='mb-6'>
           <Slider {...settings}>
            {courses.map((course) => (
               <div key={course._id} className="p-4">
@@ -207,7 +208,7 @@ const handleLogout = async () => {
 
         <hr />
         {/* Footer */}
-        <footer className='grid grid-cols-1 md:grid-cols-3 my-12'>
+        <footer className='grid grid-cols-1 mx-auto container md:grid-cols-3 my-12'>
 
           <div className='flex flex-col  items-center md:items-start'>
             <div className='flex items-center gap-2 mx-auto container'>
