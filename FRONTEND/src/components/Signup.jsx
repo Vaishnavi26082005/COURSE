@@ -3,6 +3,9 @@ import logo from "../../public/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
+
+
+
 import { Eye, EyeOff } from "lucide-react";
 
 
@@ -151,7 +154,7 @@ function Signup() {
               </div>
             </div>
             {errorMessage && (
-              <div className="mb-4 text-red-500 text-center">
+              <div className="mb-4 text-red-500 text-center block">
                 {errorMessage}
               </div>
             )}

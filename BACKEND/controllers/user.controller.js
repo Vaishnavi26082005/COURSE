@@ -8,8 +8,8 @@ import { Course } from "../models/course.model.js";
 export const signup = async (req, res) => {
     const { firstName, lastName, email, password } = req.body;
      const userSchema = z.object({
-        firstName: z.string().min(2, { message: "First name is required" }),
-        lastName: z.string().min(2, { message: "Last name is required" }),
+        firstName: z.string().min(2, { message: "First name is atleast 3 char long" }),
+        lastName: z.string().min(2, { message: "Last name is atleast 3 char long" }),
         email: z.string().email({ message: "Invalid email address" }),
         password: z.string().min(6, { message: "Password must be at least 6 characters long" }),})
 
