@@ -11,7 +11,9 @@
 .font-roboto {
   font-family: "Roboto",;
 }
-
+html, body {
+  background-color: #000000;
+}
 
 body {
   font-family: "Fredoka";

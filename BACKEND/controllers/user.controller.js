@@ -77,7 +77,7 @@ export const login=async(req,res)=>{
     };
      
     res.cookie("jwt",token,cookieOptions);
-    res.status(200).json({message:"login success",user,token})
+    res.status(200).json({message:"Logged in Successfully",user,token})
     } catch (error) {
         res.status(500).json({
             message: "internal server error",
@@ -91,20 +91,11 @@ export const login=async(req,res)=>{
 
 export const logout= async(req,res)=>{
   try {
-     if(!req.cookies.jwt){
-        return res.status(400).json({
-            message:"you are not logged in",
-        })}
-      res.clearCookie("jwt");
-    res.status(200).json({
-        message:"logout success",
-    })
+    res.clearCookie("jwt");
+    res.status(200).json({ message: "Logged out successfully" });
   } catch (error) {
-    res.status(500).json({
-        message: "internal server error",
-        error: error.message,
-    });
-    
+    res.status(500).json({ errors: "Error in logout" });
+    console.log("Error in logout", error);
   }
 }
 

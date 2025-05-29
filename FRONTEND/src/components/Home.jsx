@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { use, useEffect, useRef } from 'react'
 import * as THREE from 'three'
 import HALO from 'vanta/dist/vanta.halo.min'
 import logo from '../../public/logo.png'
@@ -8,6 +8,7 @@ import axios from 'axios'
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import toast from "react-hot-toast";
 function Home() {
   const vantaRef = useRef(null)
   const vantaEffect = useRef(null)
@@ -45,6 +46,33 @@ function Home() {
     }
   }, [])
   const [courses, setCourses] = React.useState([])
+  const[isLoggedIn,setIsLoggedIn] = React.useState(false);
+
+  useEffect(() => {
+    const token= localStorage.getItem("user");
+    if(token){
+      setIsLoggedIn(true);
+
+    }else{
+      setIsLoggedIn(false);
+    }
+
+  })
+
+const handleLogout = async () => {
+  try {
+    const response = await axios.get("http://localhost:4000/api/v1/user/logout", {
+      withCredentials: true,
+    });
+    toast.success(response.data.message);
+    setIsLoggedIn(false);
+    localStorage.removeItem("user"); // Optional: clear token
+  } catch (error) {
+    console.log("error in handleLogout ", error);
+    toast.error(error.response?.data?.errors || "Logout failed");
+  }
+};
+
   useEffect(() => {
     const fetchCourses = async () => {
       try {
@@ -59,6 +87,8 @@ function Home() {
     };
     fetchCourses();
   }, []);
+
+
  
   var settings = {
     dots: true,
@@ -118,8 +148,21 @@ function Home() {
             <h1 className='text-2xl text-blue-400 font-bold'>Skill-Nest</h1>
           </div>
           <div className='flex items-center gap-4'>
-            <Link to={"/login"} className='bg-transparent text-white py-2 px-4 border border-white rounded'>Login</Link>
-            <Link to={"/signup"} className='bg-transparent text-white py-2 px-4 border border-white rounded'>Signup</Link>
+            {
+              isLoggedIn?(<button onClick={handleLogout}
+                className='w-full bg-blue-500 hover:bg-blue-300  hover:text-black text-white py-1.5 px-5 rounded-md transition'>Logout</button>
+              
+            ):(
+              <>
+              <Link to={"/login"} className='w-full bg-blue-500 hover:bg-blue-300  hover:text-black hover:scale-105 text-white py-1.5 px-5 rounded-md transition'
+              >Login
+              </Link>
+            <Link to={"/signup"} className='w-full bg-blue-500  hover:bg-blue-300  hover:text-black hover:scale-105 text-white py-1.5 px-5 rounded-md transition'>
+              Signup
+              </Link>
+            </>
+            )
+            }
           </div>
         </header>
 

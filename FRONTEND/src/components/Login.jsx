@@ -33,6 +33,7 @@ function Login() {
       );
       console.log("Login successful: ", response.data);
       toast.success(response.data.message);
+      //jis name se save kiya tha localStorage me usi se get karna hai
       localStorage.setItem("user", JSON.stringify(response.data));
       navigate("/");
     } catch (error) {
@@ -122,7 +123,7 @@ function Login() {
             )}
             <button
               type="submit"
-              className="w-full bg-blue-500 hover:bg-blue-600 hover:scale-105 text-white py-3 px-6 rounded-md transition"
+              className="w-full bg-blue-500  hover:bg-blue-300  hover:text-black hover:scale-105 text-white py-3 px-6 rounded-md transition"
             >
               Login
             </button>
