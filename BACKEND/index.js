@@ -48,7 +48,7 @@ app.use("/api/v1/admin",adminRoute);
 });
 
 
-
+//listening to the server hehe
 
 app.listen(port,()=>{
     console.log(`server is listening on port ${port}`)
