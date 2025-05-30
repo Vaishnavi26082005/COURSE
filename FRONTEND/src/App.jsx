@@ -10,6 +10,7 @@ import Purchases from './components/Purchases'
 import toast from 'react-hot-toast'
 import { Toaster } from 'react-hot-toast'
 
+
 const App = () => {
   return (
     <div>

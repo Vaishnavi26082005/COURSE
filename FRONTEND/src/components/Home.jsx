@@ -58,6 +58,16 @@ function Home() {
     }
 
   })
+  useEffect(() => {
+    const token = localStorage.getItem("user");
+    if (token) {
+      setIsLoggedIn(true);
+    }
+    else {
+      setIsLoggedIn(false);
+    }
+    
+  },[])
 
 const handleLogout = async () => {
   try {
