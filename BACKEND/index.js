@@ -5,6 +5,7 @@ import connectDB from './utils/db.js'
 import courseRoute from './routes/course.route.js'
 import userRoute from './routes/user.route.js'
 import adminRoute from './routes/admin.route.js'
+import orderRoute from './routes/order.route.js'
 import { v2 as cloudinary } from 'cloudinary';
 import fileUpload from 'express-fileupload';
 import cookieParser from 'cookie-parser';
@@ -39,6 +40,7 @@ app.get("/",(req,res)=>{
 app.use("/api/v1/course",courseRoute);
 app.use("/api/v1/user",userRoute);
 app.use("/api/v1/admin",adminRoute);
+app.use("/api/v1/order",orderRoute);
 
 //cloudinary config
  cloudinary.config({ 

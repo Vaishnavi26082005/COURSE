@@ -153,13 +153,13 @@ console.log("User token: ", token); // Debugging line to check the token
       ) : (
         <div className="flex flex-col sm:flex-row my-12 container bg-gradient-to-r from-blue-950 to-blue-300 mx-auto">
           <div className="w-full md:w-1/2  my-40">
-            <h1 className="text-xl font-semibold underline">Order Details</h1>
+            <h1 className="text-xl font-semibold text-gray-300 underline">Order Details</h1>
             <div className="flex items-center text-center space-x-2 mt-4">
-              <h2 className="text-gray-600 text-sm">Total Price</h2>
+              <h2 className="text-gray-300 text-sm">Total Price</h2>
               <p className="text-red-500 font-bold">${course.price}</p>
             </div>
             <div className="flex items-center text-center space-x-2">
-              <h1 className="text-gray-600 text-sm">Course name</h1>
+              <h1 className="text-gray-300 text-sm">Course name</h1>
               <p className="text-red-500 font-bold">{course.title}</p>
             </div>
           </div>
