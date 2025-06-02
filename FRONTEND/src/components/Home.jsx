@@ -183,7 +183,7 @@ const handleLogout = async () => {
         </header>
 
         {/* Main Content */}
-        <section className='text-center mx-auto container mb-28 bg-gradient-to-r from-gray-950 to-blue-300 '>
+        <section className='text-center mx-auto container mb-28 bg-gradient-to-r from-gray-950 to-blue-300 p-10 '>
           <h1 className='text-4xl font-semibold text-blue-400 mb-1.5'>Skill-Nest</h1>
          
           
@@ -194,7 +194,7 @@ const handleLogout = async () => {
             <Link to={"https://www.youtube.com/results?search_query=full+stack+playlist"}className='bg-white text-black rounded py-3 px-6 font-semibold hover:bg-green-500 duration-300 hover:text-white'> Course Videos</Link>
           </div>
         </section>
-        <section className='mb-6 bg-gradient-to-r from-gray-950 to-blue-300'>
+        <section className='mb-6 bg-gradient-to-r from-gray-950 to-blue-300 py-8'>
           <Slider {...settings}>
            {courses.map((course) => (
               <div key={course._id} className="p-4">
