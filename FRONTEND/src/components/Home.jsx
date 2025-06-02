@@ -183,7 +183,7 @@ const handleLogout = async () => {
         </header>
 
         {/* Main Content */}
-        <section className='text-center mx-auto container mb-28 bg-gradient-to-r from-gray-950 to-blue-300 p-10 '>
+        <section className='text-center mx-auto container mb-6 bg-gradient-to-r from-gray-950 to-blue-300 p-10 '>
           <h1 className='text-4xl font-semibold text-blue-400 mb-1.5'>Skill-Nest</h1>
          
           
