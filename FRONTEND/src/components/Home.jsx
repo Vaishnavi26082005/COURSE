@@ -150,9 +150,9 @@ const handleLogout = async () => {
       }}
     >
       {/* <div className='bg-gradient-to-r from-blue-950 to-blue- '> */}
-      <div className="h-screen text-white mx-auto container relative z-10">
+      <div className="h-screen  text-white mx-auto container relative z-10">
         {/* Header */}
-        <header className='flex items-center justify-between  p-6'>
+        <header className='flex items-center justify-between bg-gradient-to-r from-gray-950 to-blue-300 p-6'>
           <div className='flex items-center gap-2'>
             <img src={logo} className="w-10 h-10 rounded-full" />
             <h1 className='text-2xl text-blue-400 font-bold'>Skill-Nest</h1>
@@ -183,7 +183,7 @@ const handleLogout = async () => {
         </header>
 
         {/* Main Content */}
-        <section className='text-center mx-auto container mb-28 '>
+        <section className='text-center mx-auto container mb-28 bg-gradient-to-r from-gray-950 to-blue-300 '>
           <h1 className='text-4xl font-semibold text-blue-400 mb-1.5'>Skill-Nest</h1>
          
           
@@ -194,7 +194,7 @@ const handleLogout = async () => {
             <Link to={"https://www.youtube.com/results?search_query=full+stack+playlist"}className='bg-white text-black rounded py-3 px-6 font-semibold hover:bg-green-500 duration-300 hover:text-white'> Course Videos</Link>
           </div>
         </section>
-        <section className='mb-6'>
+        <section className='mb-6 bg-gradient-to-r from-gray-950 to-blue-300'>
           <Slider {...settings}>
            {courses.map((course) => (
               <div key={course._id} className="p-4">
@@ -224,84 +224,78 @@ const handleLogout = async () => {
 
         <hr />
         {/* Footer */}
-        <footer className='grid grid-cols-1 mx-auto container md:grid-cols-3 my-12'>
+        <footer className="grid grid-cols-1 gap-8 px-4 py-8 md:grid-cols-3 bg-gray-900 text-white bg-gradient-to-r from-gray-950 to-blue-300">
+  {/* Left section: Logo + Social */}
+  <div className="flex flex-col items-center md:items-start">
+    <div className="flex items-center gap-2">
+      <img src={logo} className="w-8 h-8 rounded-full" alt="Logo" />
+      <h1 className="text-lg text-blue-400 font-semibold">Skill-Nest</h1>
+    </div>
 
-          <div className='flex flex-col  items-center md:items-start'>
-            <div className='flex items-center gap-2 mx-auto container'>
-              <img src={logo} className="w-8 h-8 rounded-full" />
-              <h1 className='text-lg text-blue-400 font-semibold'>Skill-Nest</h1>
-            </div>
-            <div className='mt-3 ml-2 md:ml-8'>
-              <p className='mb-2'>Follow us </p>
-              <div className='flex items-center gap-4 mt-2'>
-                <a href="">
-                  <FaFacebook className="text-2xl hover:text-blue-400 duration-300" />
-                </a>
-                <a href="">
-                  <FaInstagram className="text-2xl hover:text-pink-600 duration-300" />
-                </a>
-                <a href="">
-                  <FaTwitter className="text-2xl hover:text-blue-600 duration-300" />
-                </a>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div className="items-center mt-6 md:mt-0 flex flex-col">
-              <h3 className="text-lg font-semibold md:mb-4 text-blue-300">Connects</h3>
-              <ul className=" space-y-2 text-gray-200">
-                <li href="" className="hover:text-white cursor-pointer duration-300">
-                  <a
-                    href="https://www.youtube.com/results?search_query=web+development"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-white cursor-pointer duration-300"
-                  >
-                    YouTube – Learn Development
-                  </a>
-                </li>
-                <li className="hover:text-white cursor-pointer duration-300">
-                  <a
-                    href="https://t.me/jobs_and_internships_updates"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-white cursor-pointer duration-300"
-                  >
-                    Telegram – About Job and Internship Updates
-                  </a>
-                </li>
-                <li className="hover:text-white cursor-pointer duration-300">
-                  <a
-                    href="https://github.com/Vaishnavi26082005"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-white cursor-pointer duration-300"
-                  >
-                    Github-Vaishnavi Sharma!
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div>
-            <div className="items-center mt-6 md:mt-0 flex flex-col">
-              <h3 className="text-lg font-semibold mb-4 text-blue-400">
-                copyrights &#169; 2024
-              </h3>
-              <ul className=" space-y-2 text-center text-gray-400">
-                <li className="hover:text-white cursor-pointer duration-300">
-                  Terms & Conditions
-                </li>
-                <li className="hover:text-white cursor-pointer duration-300">
-                  Privacy Policy
-                </li>
-                <li className="hover:text-white cursor-pointer duration-300">
-                  Refund & Cancellation
-                </li>
-              </ul>
-            </div>
-          </div>
-        </footer>
+    <div className="mt-4 text-center md:text-left">
+      <p className="mb-2">Follow us</p>
+      <div className="flex justify-center md:justify-start gap-4 mt-2">
+        <a href="">
+          <FaFacebook className="text-2xl hover:text-blue-400 transition duration-300" />
+        </a>
+        <a href="">
+          <FaInstagram className="text-2xl hover:text-pink-600 transition duration-300" />
+        </a>
+        <a href="">
+          <FaTwitter className="text-2xl hover:text-blue-600 transition duration-300" />
+        </a>
+      </div>
+    </div>
+  </div>
+
+  {/* Middle section: Connects */}
+  <div className="flex flex-col items-center md:items-center">
+    <h3 className="text-lg font-semibold text-blue-300 mb-4">Connects</h3>
+    <ul className="space-y-2 text-gray-300 text-center">
+      <li>
+        <a
+          href="https://www.youtube.com/results?search_query=web+development"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-white transition duration-300"
+        >
+          YouTube – Learn Development
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://t.me/jobs_and_internships_updates"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-white transition duration-300"
+        >
+          Telegram – Job & Internship Updates
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://github.com/Vaishnavi26082005"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-white transition duration-300"
+        >
+          Github – Vaishnavi Sharma
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  {/* Right section: Legal */}
+  <div className="flex flex-col items-center md:items-center">
+    <h3 className="text-lg font-semibold text-blue-400 mb-4">© 2024</h3>
+    <ul className="space-y-2 text-gray-400 text-center">
+      <li className="hover:text-white transition duration-300">Terms & Conditions</li>
+      <li className="hover:text-white transition duration-300">Privacy Policy</li>
+      <li className="hover:text-white transition duration-300">Refund & Cancellation</li>
+    </ul>
+  </div>
+</footer>
+
       </div>
     </div>
     // </div>
