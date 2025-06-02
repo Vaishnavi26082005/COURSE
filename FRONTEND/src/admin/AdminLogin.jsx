@@ -13,6 +13,7 @@ function AdminLogin() {
   const [showPassword, setShowPassword] = useState(false);
 
   const navigate = useNavigate();
+  useEffect(() => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -42,7 +43,7 @@ function AdminLogin() {
       }
     }
   };
-
+  },[]);
   return (
     <div className="bg-gradient-to-r from-blue-950 to-blue-300 ">
       <div className="h-screen container mx-auto flex  items-center justify-center text-white">
