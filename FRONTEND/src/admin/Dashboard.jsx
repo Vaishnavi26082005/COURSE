@@ -11,8 +11,8 @@ function Dashboard() {
     const [sidebarOpen, setSidebarOpen] = useState(false);
   const handleLogout = async () => {
     try {
-      const response = await axios.post("https://course-4h17.onrender.com/api/v1/admin/logout", {
-        withCredentials: true,
+      const response = await axios.post("https://course-4h17.onrender.com/api/v1/admin/logout", {},
+       { withCredentials: true,
       });
       toast.success(response.data.message);
       localStorage.removeItem("admin");
