@@ -87,22 +87,13 @@ export const login=async(req,res)=>{
 }
 
 
-
-export const logout= async(req,res)=>{
+export const logout = (req, res) => {
   try {
-    if(!req.cookies?.jwt){
-        return res.status(400).json({
-            message:"you are not logged in",
-        })}
+   
     res.clearCookie("jwt");
-    res.status(200).json({
-        message:"logout success",
-    })
+    res.status(200).json({ message: "Logged out successfully" });
   } catch (error) {
-    res.status(500).json({
-        message: "internal server error",
-        error: error.message,
-    });
-    
+    res.status(500).json({ errors: "Error in logout" });
+    console.log("Error in logout", error);
   }
-}
+};
