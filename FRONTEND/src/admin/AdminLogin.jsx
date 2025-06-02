@@ -8,19 +8,17 @@ import { Eye, EyeOff } from "lucide-react";
 function AdminLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const [errorMessage, setErrorMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
   const navigate = useNavigate();
-  useEffect(() => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       const response = await axios.post(
-       "https://course-4h17.onrender.com/api/v1/admin/login",
+        "https://course-4h17.onrender.com/api/v1/admin/login",
         {
           email,
           password,
@@ -34,21 +32,22 @@ function AdminLogin() {
       );
       console.log("AdminLogin successful: ", response.data);
       toast.success(response.data.message);
-      //jis name se save kiya tha localStorage me usi se get karna hai
       localStorage.setItem("admin", JSON.stringify(response.data));
       navigate("/admin/dashboard");
     } catch (error) {
       if (error.response) {
         setErrorMessage(error.response.data.errors || "Login failed!!!");
+      } else {
+        setErrorMessage("Something went wrong!");
       }
     }
   };
-  },[]);
+
   return (
     <div className="bg-gradient-to-r from-blue-950 to-blue-300 ">
-      <div className="h-screen container mx-auto flex  items-center justify-center text-white">
+      <div className="h-screen container mx-auto flex items-center justify-center text-white">
         {/* Header */}
-        <header className="absolute top-0 left-0 w-full flex justify-between items-center p-5  ">
+        <header className="absolute top-0 left-0 w-full flex justify-between items-center p-5">
           <div className="flex items-center space-x-2">
             <img src={logo} alt="Logo" className="w-10 h-10 rounded-full" />
             <Link to={"/"} className="text-xl font-bold text-blue-300">
@@ -58,13 +57,13 @@ function AdminLogin() {
           <div className="flex items-center space-x-4">
             <Link
               to={"/admin/signup"}
-              className="bg-transparent  font-semibold border hover:scale-105 border-gray-500 p-1  text-black text-sm md:text-md md:py-2 md:px-4 rounded-md hover:bg-gray-900 hover:text-white transition duration-300"
+              className="bg-transparent font-semibold border hover:scale-105 border-gray-500 p-1 text-black text-sm md:text-md md:py-2 md:px-4 rounded-md hover:bg-gray-900 hover:text-white transition duration-300"
             >
               Signup
             </Link>
             <Link
               to={"/courses"}
-              className="bg-gray-900 p-1 font-semibold  hover:scale-105 text-sm md:text-md md:py-2 md:px-4 rounded-md hover:bg-gray-600"
+              className="bg-gray-900 p-1 font-semibold hover:scale-105 text-sm md:text-md md:py-2 md:px-4 rounded-md hover:bg-gray-600"
             >
               Join now
             </Link>
@@ -82,7 +81,7 @@ function AdminLogin() {
 
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
-              <label htmlFor="email" className=" text-gray-400 mb-2">
+              <label htmlFor="email" className="text-gray-400 mb-2">
                 Email
               </label>
               <input
@@ -96,7 +95,7 @@ function AdminLogin() {
               />
             </div>
             <div className="mb-4">
-              <label htmlFor="password" className=" text-gray-400 mb-2">
+              <label htmlFor="password" className="text-gray-400 mb-2">
                 Password
               </label>
               <div className="relative">
@@ -124,7 +123,7 @@ function AdminLogin() {
             )}
             <button
               type="submit"
-              className="w-full bg-blue-500  hover:bg-blue-300  hover:text-black hover:scale-105 text-white py-3 px-6 rounded-md transition"
+              className="w-full bg-blue-500 hover:bg-blue-300 hover:text-black hover:scale-105 text-white py-3 px-6 rounded-md transition"
             >
               Login
             </button>
