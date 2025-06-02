@@ -159,8 +159,14 @@ const handleLogout = async () => {
           </div>
           <div className='flex items-center gap-4'>
             {
-              isLoggedIn?(<button onClick={handleLogout}
+              isLoggedIn?(
+              <>
+              <button onClick={handleLogout}
                 className='w-full bg-blue-500 hover:bg-blue-300  hover:text-black text-white py-1.5 px-5 rounded-md transition'>Logout</button>
+                 <Link to={"/admin/signup"} className='w-full bg-blue-500 hover:bg-blue-300  hover:text-black hover:scale-105 text-white py-1.5 px-5 rounded-md transition'
+              >Admin
+              </Link>
+              </>
               
             ):(
               <>
