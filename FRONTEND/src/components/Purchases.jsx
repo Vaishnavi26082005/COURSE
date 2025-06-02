@@ -7,6 +7,7 @@ import { IoLogIn, IoLogOut } from "react-icons/io5";
 import { RiHome2Fill } from "react-icons/ri";
 import { HiMenu, HiX } from "react-icons/hi"; 
 import { Link, useNavigate } from "react-router-dom";
+import { BACKEND_URL } from "../utils/util.js";
 
 function Purchases() {
 const [purchases, setPurchase] = useState([]);
@@ -33,7 +34,7 @@ const [purchases, setPurchase] = useState([]);
      useEffect(() => {
     const fetchPurchases = async () => {
       try {
-        const response = await axios.get(` http://localhost:4000/api/v1/user/purchase`, {
+        const response = await axios.get(` https://course-4h17.onrender.com/api/v1/user/purchase`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

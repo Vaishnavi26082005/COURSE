@@ -23,7 +23,7 @@ function AdminSignup() {
 
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/v1/admin/signup",
+        "https://course-4h17.onrender.com/api/v1/admin/signup",
         {
           firstName,
           lastName,

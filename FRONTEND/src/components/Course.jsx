@@ -36,7 +36,7 @@ function Course() {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const response = await axios.get(" http://localhost:4000/api/v1/course/courses", {
+        const response = await axios.get(" https://course-4h17.onrender.com/api/v1/course/courses", {
           withCredentials: true,
         });
         // console.log(response.data.course);

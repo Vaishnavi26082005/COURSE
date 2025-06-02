@@ -37,7 +37,7 @@ console.log("User token: ", token); // Debugging line to check the token
   useEffect(() => {
     const fetchBuyCourseData = async () => {
       try {
-        const response = await axios.post(` http://localhost:4000/api/v1/course/buy/${courseId}`,{}, {
+        const response = await axios.post(` https://course-4h17.onrender.com/api/v1/course/buy/${courseId}`,{}, {
           withCredentials: true,
           headers: {
             Authorization: `Bearer ${token}`,
@@ -122,7 +122,7 @@ console.log("User token: ", token); // Debugging line to check the token
       };
       console.log("Payment info: ", paymentInfo);
       await axios
-        .post("http://localhost:4000/api/v1/order/", paymentInfo, {
+        .post("https://course-4h17.onrender.com/api/v1/order/", paymentInfo, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
