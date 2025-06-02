@@ -187,7 +187,7 @@ const handleLogout = async () => {
           <h1 className='text-4xl font-semibold text-blue-400 mb-1.5'>Skill-Nest</h1>
          
           
-          <p className="text-gray-400 ">Sharpen your skills with expertly crafted courses at Skill Nest—your destination to learn, grow, and achieve more.</p>
+          <p className="text-gray-100 ">Sharpen your skills with expertly crafted courses at Skill Nest—your destination to learn, grow, and achieve more.</p>
          
           <div className='space-x-4 mt-8'>
             <Link to={"/courses"} className='bg-green-500 text-white  py-3 px-6 rounded font-semibold hover:bg-white duration-300 hover:text-black'> Explore Courses</Link>
@@ -250,8 +250,8 @@ const handleLogout = async () => {
 
   {/* Middle section: Connects */}
   <div className="flex flex-col items-center md:items-center">
-    <h3 className="text-lg font-semibold text-blue-300 mb-4">Connects</h3>
-    <ul className="space-y-2 text-gray-300 text-center">
+    <h3 className="text-lg font-semibold text-blue-400 mb-4">Connects</h3>
+    <ul className="space-y-2 text-gray-100 text-center">
       <li>
         <a
           href="https://www.youtube.com/results?search_query=web+development"
@@ -287,8 +287,8 @@ const handleLogout = async () => {
 
   {/* Right section: Legal */}
   <div className="flex flex-col items-center md:items-center">
-    <h3 className="text-lg font-semibold text-blue-400 mb-4">© 2024</h3>
-    <ul className="space-y-2 text-gray-400 text-center">
+    <h3 className="text-lg font-semibold text-blue-600 mb-4">© 2024</h3>
+    <ul className="space-y-2 text-gray-100 text-center">
       <li className="hover:text-white transition duration-300">Terms & Conditions</li>
       <li className="hover:text-white transition duration-300">Privacy Policy</li>
       <li className="hover:text-white transition duration-300">Refund & Cancellation</li>
