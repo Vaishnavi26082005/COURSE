@@ -60,7 +60,10 @@ export const createCourse = async (req, res) => {
 export const updateCourse = async (req, res) => {
    const adminId  = req.adminId; // Assuming you have the adminId from the request context
    const { courseId } = req.params;
-   const { title, description, price, image } = req.body;
+   const { title, description, price } = req.body;
+   console.log(price)
+ const file = req.files?.image; // ✅ Matches with 'image' key in FormData
+
    try {
 
 const search = await Course.findOne({ _id: courseId, creatorId: adminId });search
@@ -68,7 +71,29 @@ const search = await Course.findOne({ _id: courseId, creatorId: adminId });searc
       if(!search) {
          return res.status(404).json({ message: "Course Not Found" });
       }
-      const course = await Course.updateOne({
+      
+      
+
+let imageData = search.image; // default to existing image
+
+    if (file) {
+      // Optional: delete old image from cloud storage
+      await cloudinary.uploader.destroy(search.image.public_id);
+
+      // Upload new image
+      const uploaded = await cloudinary.uploader.upload(file.path, {
+        folder: "courses",
+      });
+
+      imageData = {
+        public_id: uploaded.public_id,
+        url: uploaded.secure_url,
+      };     
+
+
+   }
+
+      const course = await Course.findOneAndUpdate({
          _id: courseId,
          creatorId: adminId, // Ensure the course belongs to the admin
       }, {
@@ -76,12 +101,15 @@ const search = await Course.findOne({ _id: courseId, creatorId: adminId });searc
          description,
          price,
          image: {
-            public_id: image.public_id,
-            url: image.url,
-         },
-
-      }
+            public_id: imageData?.public_id,
+            url: imageData?.url,
+         }},
+{ new: true }
+      
       )
+      if(!course) {
+         return res.status(404).json({ message: "Course Not Found" });
+      }
       res.status(201).json({
          message: "Course updated successfully",
          course,

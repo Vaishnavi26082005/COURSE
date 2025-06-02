@@ -15,7 +15,7 @@ function Buy() {
   const [error, setError] = useState("");
 
   const user = JSON.parse(localStorage.getItem("user"));
-  const token = user.token;  
+  const token = user?.token;  
 console.log("User token: ", token); // Debugging line to check the token  
   //using optional chaining to avoid crashing incase token is not there!!!
 
@@ -24,7 +24,12 @@ console.log("User token: ", token); // Debugging line to check the token
   const [cardError, setCardError] = useState("");
 
   useEffect(() => {
-  if (!token) {
+    
+ const storedUser = JSON.parse(localStorage.getItem("user"));
+  const storedToken = storedUser?.token;
+
+  if (!storedToken) {
+    toast.error("Please login to continue");
     navigate("/login");
   }
 }, [token]);
@@ -117,7 +122,7 @@ console.log("User token: ", token); // Debugging line to check the token
       };
       console.log("Payment info: ", paymentInfo);
       await axios
-        .post(`${BACKEND_URL}/order`, paymentInfo, {
+        .post("http://localhost:4000/api/v1/order/", paymentInfo, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

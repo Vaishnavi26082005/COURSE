@@ -196,7 +196,7 @@ const handleLogout = async () => {
                   <div className="bg-gray-900 rounded-lg overflow-hidden">
                     <img
                       className="h-32 w-full object-contain"
-                      src={course.image.url}
+                      src={course.image?.url}
                       alt=""
                     />
                     <div className="p-6 text-center ">
